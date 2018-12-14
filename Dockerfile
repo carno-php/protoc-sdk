@@ -15,7 +15,7 @@ FROM carno/protoc-assets as assets
 
 FROM alpine
 
-RUN apk --no-cache add protobuf
+RUN apk --no-cache add ca-certificates protobuf
 
 COPY --from=assets /build/protoc-gen /usr/bin
 COPY --from=builder /build/protoc-sdk /usr/bin
