@@ -210,7 +210,7 @@ func sdkPush(sdk string, commit *gitlab.Commit) {
 
 	log.Info().Msgf("Git pushing to remote of %s", sdk)
 
-	if err := repo.Push(&git.PushOptions{Progress: os.Stdout}); err != nil {
+	if err := repo.Push(&git.PushOptions{}); err != nil {
 		panic(err)
 	}
 
@@ -280,7 +280,6 @@ func gitClone(http string, dir string) string {
 		URL:           u.String(),
 		ReferenceName: plumbing.Master,
 		SingleBranch:  true,
-		Progress:      os.Stdout,
 	}); err != nil {
 		if err == transport.ErrEmptyRemoteRepository {
 			if repo, err := git.PlainInit(tmp, false); err != nil {
