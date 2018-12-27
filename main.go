@@ -26,7 +26,7 @@ var opts struct {
 	GitlabToken string `long:"gitlab-token" required:"true" description:"Gitlab API access token"`
 	SDKGroup    string `long:"sdk-group" required:"true" description:"Gitlab group for generated SDK"`
 	PGBin       string `long:"protoc-bin" default:"protoc"`
-	PGPlugin    string `long:"protoc-plugin" default:"/usr/bin/protoc-gen"`
+	PGPlugin    string `long:"protoc-plugin" default:"/usr/local/bin/protoc-gen"`
 }
 
 var gapi *gitlab.Client
